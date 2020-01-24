@@ -1,2 +1,2 @@
 # cs50w
-This is a repository for my cs50w projects and assignments
+This is a repository for projects and assignments for the CS50 WebDev course on edx

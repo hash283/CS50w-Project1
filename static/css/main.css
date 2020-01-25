@@ -1,0 +1,93 @@
+ #navbar ul
+    {
+    	list-style-type: none;
+  		margin:0;
+  		padding: 0;
+  		overflow: hidden;
+  		background-color: #404040;
+    }
+    #navbar li
+    {
+    	float:right;
+    	color: white;
+    }
+    #navbar a
+    {
+    	font-family: "Trebuchet MS", Helvetica, sans-serif;
+    	font-style:oblique;
+	 	display: block;
+  		color: white;
+	 	text-align: center;
+	  	padding: 14px 16px;
+	  	text-decoration: none;
+	}
+	#navbar a:hover
+	{
+		background-color: #ffbf00;
+	}
+	#navbar #webname
+	{
+		font-size:15px;
+		font-family: "Trebuchet MS", Helvetica, sans-serif;
+		font-style:oblique;
+		color: #ffbf00;
+	 	text-align: center;
+	  	padding: 14px 16px;
+	  	margin-right:5px;
+	  	float:left;
+	}
+	.active
+	{
+		background-color: #ffbf00;
+	}
+	body
+	{
+		background-image:url("books5.jpg");
+	}
+	#content
+	{
+	font-family:Tahoma, Geneva, sans-serif;
+	font-style:bold;
+	color:white;
+	border-style:solid;
+	border-color:white;
+	border-width:5px;
+	}
+	#login input[type=text],[type=password]
+	 {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  margin-bottom:10px;
+}
+#login input[type=text]
+{
+  background-image: url('usericon.png');
+}
+#login input[type=password]
+{
+  background-image: url('passicon24.png');
+}
+#login input[type=submit]{
+  background-color:#ffbf00;
+  border:none;
+  border-radius:40px;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin-top:20px; 
+  margin-left:89px;
+  cursor: pointer;
+}
+.message
+{
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	font-size:14px;
+	width: 110%;
+}

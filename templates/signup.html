@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/main.css">
+<style>
+.login_cred
+{
+	margin-top:60px;
+}
+.login_text
+{
+	font-family:Tahoma, Geneva, sans-serif;
+	font-style:bold;
+	color:white;
+	font-size:25px; 
+	margin-left:104px;
+	margin-top:10px;  
+}
+#login
+{
+	height: 460px;
+	width: 300px;
+	margin-top: 90px;
+	margin-left: 150px; 
+	background-color:#1a1a1a;
+	border-width:3px;
+	border-color:#1a1a1a;
+	border-style:solid;
+	border-radius:8px;
+}
+form>i
+{
+	color:white;
+	margin-left:130px;
+	margin-top:15px;
+}
+.err_msg
+{
+	font-family:Tahoma, Geneva, sans-serif;
+	font-style:bold;
+	color:#e60000;
+	font-size:18px;
+	margin-top:5px;
+	padding-left:50px; 
+}
+</style>
+{% endblock %}
+{% block nav %}
+<li id="webname">BOOKREVS</li>
+	<li style="float:left;"><a href="{{ url_for('home') }}">Home</a></li>
+	<li><a href="{{ url_for('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	<li class="active"><a href="{{ url_for('signup') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+{% endblock %}
+{% block body %}
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-2"></div>
+<div class="col-sm-8">
+<div id="login">
+<form action="{{ url_for('signup') }}" method="post">
+<i class="fa fa-bookmark-o" style="font-size:45px;"></i><br>
+<div class="login_text">
+SIGN UP<br>
+</div>
+<div class="err_msg">
+{{message}}
+</div>
+<div class="login_cred">
+<input type="text" name="username" placeholder="username" required><br>
+<input type="password" name="password" placeholder="password" required><br>
+</div>
+<input type="submit" name="submit">
+</form>
+</div>
+</div>
+<div class="col-sm-2"></div>
+</div>
+</div>
+{% endblock %}

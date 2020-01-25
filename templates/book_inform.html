@@ -1,0 +1,273 @@
+{% extends "layout.html" %}
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/main.css">
+<style> 
+body
+{
+    background-image:url("/static/css/books4.jpg");
+    background-size:1365px;
+}
+.book_data
+{
+	margin-top:5px;
+	border:1px solid  #ffbf00;
+	background: rgba(0, 0, 0, 0.6);
+	background-image:url("/static/css/bookinform3.png");
+	background-repeat:no-repeat;
+	background-position: 40px 70px;
+	background-size:130px;
+	color: white;
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	font-weight:bold;
+	font-style: oblique;
+	font-size:18px;
+}
+.title
+{
+	font-size:28px;
+	padding-top:10px;
+	padding-left:25px;
+}
+table
+{
+  border-collapse: collapse;
+  width: 100%;
+}
+th, td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ffbf00;
+}
+form
+{
+	margin-top: 180px;
+}
+textarea {
+
+  margin-top: 5px;
+  font-style:normal;
+  width: 100%;
+  height: 200px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 18px;
+  color:black;
+  resize: none;
+}
+.review_title
+{
+	padding-left:120px;
+	font-size:20px;
+}
+.containers {
+  position: relative;
+  padding-top: 15px;
+  padding-left: 45px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* Hide the browser's default radio button */
+.containers input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+/* Create a custom radio button */
+.checkmark {
+  margin-left: 20px;
+  margin-top:16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: white;
+  border-radius: 50%;
+}
+/* On mouse-over, add a grey background color */
+.containers:hover input ~ .checkmark {
+  background-color:#ff751a;
+}
+
+/* When the radio button is checked, add a blue background */
+.containers input:checked ~ .checkmark {
+  background-color: #ffbf00;
+}
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+/* Show the indicator (dot/circle) when checked */
+.containers input:checked ~ .checkmark:after {
+  display: block;
+}
+/* Style the indicator (dot/circle) */
+.containers .checkmark:after {
+  top: 6.8px;
+  left: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+}
+.button
+{
+  border-radius:2px;
+  background-color: #ffbf00;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-top:5px;
+  margin-left:130px; 
+  cursor: pointer;
+}
+.reviews_table
+{
+	margin-top:30px;
+}
+.reviews_table_title
+{
+	margin-left: 100px;
+	margin-right: 100px;
+	text-align:center;
+	font-size:30px;
+	border-bottom: 2px dotted #ffbf00;
+	margin-bottom: 10px;
+}
+.reviews_table ul
+{
+	list-style-type:none;
+	margin-left:60px;
+	margin-right:96px; 
+}
+.reviews_table li
+{
+	padding-top:10px;
+	padding-bottom: 10px;
+	border-bottom:1px solid #ffbf00;
+}
+.msg
+{
+	font-size: 22px;
+	padding-left: 330px;
+}
+</style>
+{% endblock %}
+{% block nav %}
+<li id="webname">BOOKREVS</li>
+  <li style="float:left;"><a href="{{ url_for('loginhome') }}">Home</a></li>
+  <li><a href="{{ url_for('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+  <li><a href="{{ url_for('search') }}"><span class="glyphicon glyphicon-search"></span> Search</a></li>
+{% endblock %}
+{% block body %}
+<div class="book_data">
+<div class="title">
+{{inform.title}}
+</div>
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-6">
+<form action="{{ url_for('book_inform',book_title=inform.title,book_isbn=inform.isbn) }}" method="POST">
+<span class="review_title">Leave A Review</span>
+<textarea class="review" name="review" placeholder="Write something.." required></textarea>
+<div class="rating">
+<span>Rating:</span>
+<label class="containers">1
+<input type="radio" name="rating" value="1" checked="checked">
+<span class="checkmark"></span>
+</label>
+<label class="containers">2
+<input type="radio" name="rating" value="2">
+<span class="checkmark"></span>
+</label>
+<label class="containers">3
+<input type="radio" name="rating" value="3">
+<span class="checkmark"></span>
+</label>
+<label class="containers">4
+<input type="radio" name="rating" value="4">
+<span class="checkmark"></span>
+</label>
+<label class="containers">5
+<input type="radio" name="rating" value="5">
+<span class="checkmark"></span>
+</label>
+</div>
+<button class="button">Submit</button>
+</form>
+</div>
+<div class="col-sm-6">
+<table>
+<tr>
+<td>ISBN</td>
+<td>{{inform.isbn}}</td>
+</tr>
+<tr>
+<td>Full Title</td>
+<td>{{inform.title}}</td>
+</tr>
+<tr>
+<td>Author</td>
+<td>{{inform.author}}</td>
+</tr>
+<tr>
+<td>Publish Date</td>
+<td>{{inform.pubyear}}</td>
+</tr>
+<tr>
+<td>Average Rating</td>
+{% if inform.avg_rating is none %}
+<td>0</td>
+{% else %}
+<td>{{inform.avg_rating}}</td>
+{% endif %}
+</tr>
+<td>Ratings Count</td>
+<td>{{inform.count_rating}}</td>
+{% if goodreads_inform is not none %}
+<tr>
+<td>Average Rating*(Goodreads)</td>
+<td>{{goodreads_inform[0]['average_rating']}}</td>
+</tr>
+<tr>
+<td>Ratings Count*<br>(Goodreads)</td>
+<td>{{goodreads_inform[0]['work_ratings_count']}}</td>
+</tr>
+{% endif %}
+</table>
+</div>
+</div>
+</div>
+<div class="reviews_table">
+<div class="reviews_table_title">
+REVIEWS
+</div>
+{% if reviews|length == 0 %}
+<span class="msg">No reviews available</span>
+{% else %}
+<ul>
+{% for item in reviews %}
+<li><span style="color: #ff1a1a;">{{item.username}}</span> rated this book {{item.rating}} out of 5
+<p style="padding-top:15px;">{{item.review}}</p>
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+</div>
+</div>
+{% endblock %}

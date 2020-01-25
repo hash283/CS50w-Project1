@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/main.css">
+<style> 
+body
+{
+    background-image:url("/static/css/books4.jpg");
+    background-size:1365px;
+}
+.msg
+{
+	border:1px solid #ffbf00;
+	margin-top:10px;
+	padding-top:30px;
+	text-align:center;
+	background: rgba(0, 0, 0, 0.5);
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	font-weight:bold;
+	font-style: oblique;
+	font-size:22px;
+	color: #ff1a1a;
+	height:100px;
+}
+</style>
+{% endblock %}
+{% block nav %}
+<li id="webname">BOOKREVS</li>
+  <li style="float:left;"><a href="{{ url_for('loginhome') }}">Home</a></li>
+  <li><a href="{{ url_for('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+  <li><a href="{{ url_for('search') }}"><span class="glyphicon glyphicon-search"></span> Search</a></li>
+{% endblock %}
+{% block body %}
+<div class="msg">
+You have already submitted a review for this book.
+</div>
+{% endblock %}

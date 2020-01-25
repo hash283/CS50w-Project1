@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+#content
+{
+	margin-top: 280px;
+	text-align:center;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-style:bold;
+	color:#f2f2f2;
+	border-style:solid;
+	border-color: #f2f2f2;
+	border-width:3px;
+	font-size: 50px;
+}
+i
+{
+	color: #f2f2f2;
+}
+</style>
+{% endblock %}
+{% block nav %}
+<li id="webname">BOOKREVS</li>
+	<li class="active" style="float:left;"><a href="{{ url_for('home') }}">Home</a></li>
+	<li><a href="{{ url_for('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	<li><a href="{{ url_for('signup') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+{% endblock %}
+{% block body %}
+<div id="content">
+<i class="fa fa-book" style="font-size:60px;"></i>
+ WELCOME TO BOOKREVS
+</div>
+{% endblock %}

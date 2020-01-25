@@ -26,4 +26,7 @@ $ pip install -r requirements.txt
 #Set Environment Variables
 $ export FLASK_APP = application.py
 #For Windows set FLASK_APP = application.py
+
+#Run Flask
+$flask run
 ```

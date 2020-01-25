@@ -1,4 +1,4 @@
-# CS50w Project1
+# CS50w Project1:Books
 
 This is a repository for project 1 of CS50 Web Development Course.
 
@@ -10,4 +10,15 @@ In this Project the student is tasked to make a book review website.Users should
 ![](https://i.imgur.com/SsdAzMJ.png)
 ![](https://i.imgur.com/YWVxJYB.png)
 
+## Setup
+```bash
+# Clone repo
+$ git clone https://github.com/hash283/CS50w-Project1.git
 
+# Install dependencies
+$ pip install -r requirements.txt
+
+#Set Environment Variables
+$ export FLASK_APP = application.py
+#For Windows set FLASK_APP = application.py
+```
